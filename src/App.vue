@@ -31,13 +31,9 @@
                 </nav>
             </div>
         </div>
-        <div class="concernTag" v-if="routerNow === 'timeline'">
-            <ul class="tag-ul">
-                <router-link class="tal-ul-a" :to="item.key" v-for="item in navList" :key="item.key">
-                    {{item.name}}
-                </router-link> 
-            </ul>
-        </div>
+        <!-- <div class="concernTag" > -->
+        <TagMenu v-if="routerNow === 'timeline'"/>
+        <!-- </div> -->
         <div class="page">
             <router-view></router-view>
         </div>
@@ -48,7 +44,8 @@
 import SearchInput from '@/public/searchInput' ;
 import Button from '@/public/button' ;
 import Select from '@/public/select' ;
-import UserMenu from '@/components/user/userMenu';
+import UserMenu from '@/components/user/userMenu' ;
+import TagMenu from '@/components/tag/tagMenu' ;
 import { ref, onMounted, computed, watch } from 'vue' ;  
 
 export default {
@@ -56,7 +53,8 @@ export default {
         SearchInput,
         Button,
         Select,
-        UserMenu
+        UserMenu,
+        TagMenu
     },
     setup () {
         const { navList } = useNavList() ;
@@ -138,6 +136,7 @@ body{
     background-color: #f4f5f5;
     ul{
         list-style: none;
+        padding: 0;
     }
     a{
         text-decoration: none;
@@ -175,7 +174,8 @@ body{
                 .nav-ul {
                     display: flex;
                     padding: 0;
-                    li {
+                    .nav-menu {
+                        flex: 2 1 auto;
                         .nav-ul-a {
                             float: left;
                             margin: 5px 15px;
@@ -184,9 +184,6 @@ body{
                                 color: #0876e4;
                             }
                         }
-                    }
-                    .nav-menu {
-                        flex: 2 1 auto;
                     }
                     .nav-search{
                         justify-content: flex-end;
@@ -222,36 +219,10 @@ body{
             }
         }    
     }
-    .concernTag{
-        width: 100%;
-        height: 2.8rem;
-        background-color: white;
-        border: 1px solid #f4f5f5;
-        .tag-ul{
-            max-width: 960px;
-            margin: 0 auto;
-            height: 100%;
-            padding: 0;
-            .tal-ul-a{
-                float: left;
-                line-height: 2.8rem;
-                margin: 0 10px;
-                font-size: 14px;
-                color: #71777c;
-                &:first-child{
-                    margin-left: 0;
-                }
-                &:hover{
-                    color: #0876e4;
-                }
-            }
-        }
-    }
     .page{
         max-width: 960px;
         margin: 0px auto;
         margin-top: 15px;
-        background-color: green;
     }
 }
 </style>
