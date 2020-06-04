@@ -1,13 +1,14 @@
 <template>
-    <div class="searchInput">
-        <i class="fas fa-search icon" @click="searchValue"></i>
-        <input id="search" type="text" placeholder="搜索掘金" value="">
-    </div>
+    <span class="searchInput">
+        <i v-if="state !== 'reduceThird'" class="fas fa-search icon" @click="searchValue"></i>
+        <input id="search" type="text" :placeholder="搜索掘金" value="">
+    </span>
 </template>
 
 <script>
 import { ref, watch } from 'vue'
 export default{
+    props: ['state'],
     // setup() {
     //     let inputValue = ref('') ;
     //     // 点击搜索图标更新inputValue信息

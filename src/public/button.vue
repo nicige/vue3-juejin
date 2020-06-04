@@ -1,8 +1,8 @@
 <template>
-    <div class="button">
+    <span class="button">
         <button class="publish" @click="publishNewArticle">{{msg}}</button>
         <button class="more"><i class="fas fa-angle-down icon"></i></button>
-    </div>
+    </span>
 </template>
 
 <script>
