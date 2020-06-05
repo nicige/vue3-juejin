@@ -1,7 +1,7 @@
 <template>
     <span class="searchInput">
         <i v-if="state !== 'reduceThird'" class="fas fa-search icon" @click="searchValue"></i>
-        <input id="search" type="text" :placeholder="搜索掘金" value="">
+        <input id="search" type="text" placeholder="搜索掘金" value="">
     </span>
 </template>
 

@@ -140,6 +140,14 @@ body{
     }
     a{
         text-decoration: none;
+        cursor: pointer;
+        color: #909090;
+        &:hover{
+            color: #007fff;
+        }
+        &:active{
+            color: #007fff;
+        }
     }
 }
 #main {
@@ -220,6 +228,7 @@ body{
         }    
     }
     .page{
+        position: relative;
         max-width: 960px;
         margin: 0px auto;
         margin-top: 15px;

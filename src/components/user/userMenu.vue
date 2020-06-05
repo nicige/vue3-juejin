@@ -73,6 +73,7 @@ function useUserMenuList () {
 
 <style lang=scss>
 .userUl{
+    z-index: 999;
     border: 1px solid rgba(177,180,185,.45);
     border-radius: 4px;
     padding: 5px;
